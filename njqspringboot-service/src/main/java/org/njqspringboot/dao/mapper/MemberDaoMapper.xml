@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.njqspringboot.dao.MemberDao">
+	
+	<resultMap type="org.njqspringboot.model.member.MemberInfo" id="memberInfoResultMap">
+		<id column="id" property="id" jdbcType="BIGINT" />
+	   	<result column="store_id" jdbcType="BIGINT" property="storeId" />
+	    <result column="username" jdbcType="VARCHAR" property="username" />
+	    <result column="password" jdbcType="VARCHAR" property="password" />
+	     <result column="sex" jdbcType="SMALLINT" property="sex" />
+	    <result column="id_card_no" jdbcType="VARCHAR" property="idCardNo" />
+	    <result column="age" jdbcType="INTEGER" property="age" />
+	    <result column="usertype" jdbcType="SMALLINT" property="usertype" />
+	    <result column="enabled" jdbcType="INTEGER" property="enabled" />
+	    <result column="realname" jdbcType="VARCHAR" property="realname" />
+	    <result column="address" jdbcType="VARCHAR" property="address" />
+	    <result column="fieldsfact" jdbcType="VARCHAR" property="fieldsfact" />
+	    <result column="fields" jdbcType="VARCHAR" property="fields" />
+	    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+	    <result column="members" jdbcType="INTEGER" property="members" />
+	    <result column="crop" jdbcType="VARCHAR" property="crop" />
+	    <result column="vip_card" jdbcType="VARCHAR" property="vipCard" />
+	    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+	    <result column="create_user" jdbcType="INTEGER" property="createUser" />
+	    <result column="member_desc" jdbcType="VARCHAR" property="memberDesc" />
+	</resultMap>
+	
+	<sql id="Base_Column_List" >
+	    id, store_id, username, password, sex, id_card_no, age, usertype, enabled, realname, 
+	    address, fieldsfact, fields, phone_number, members, crop, vip_card, create_time, update_time,
+	    create_user, member_desc
+	</sql>
+  
+	<select id="getMemberList" resultMap="memberInfoResultMap">
+		select 
+			<include refid="Base_Column_List" />
+		from xx_member limit 100
+	</select>
+</mapper>

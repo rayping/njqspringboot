@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.njq.springboot</groupId>
+    <artifactId>njqspringboot</artifactId>
+    <version>${njq.springboot.version}</version>
+  </parent>
+  
+  <artifactId>njqspringboot-service</artifactId>
+  <name>njqspringboot-service</name>
+  <packaging>jar</packaging>
+   
+  <url>http://maven.apache.org</url>
+  <properties>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <springbootVersion>1.3.5.RELEASE</springbootVersion>
+     <springfox-swagger2.version>2.5.0</springfox-swagger2.version>
+  </properties>
+  <dependencies>
+  
+  	<dependency>
+		<groupId>com.njq.springboot</groupId>
+		<artifactId>njqspringboot-common</artifactId>
+		<version>${njq.springboot.version}</version>
+	</dependency>
+	
+	<!-- spring-boot-starter-web -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	    <version>${springbootVersion}</version>
+	</dependency> 
+	
+	 <!-- swagger -->
+	<dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>${springfox-swagger2.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>${springfox-swagger2.version}</version>
+    </dependency>
+	
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
