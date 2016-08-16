@@ -37,7 +37,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter{
 
 	
     private Predicate<String> path() {
-		return PathSelectors.ant("/api/*");
+		return PathSelectors.ant("/api/**");
 	}
 
 	private ApiInfo apiInfo() {

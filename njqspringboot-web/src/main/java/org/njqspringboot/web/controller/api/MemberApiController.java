@@ -38,8 +38,8 @@ public class MemberApiController {
         @ApiImplicitParam(name = "pageSize", value = "每页条数", required = false, dataType = "java.lang.Integer"),
     })
 	@ApiResponses(value = {
-	        @ApiResponse(code=0, message="操作成功", response=JsonResponse.class), 
-	        @ApiResponse(code=1, message="失败[异常]", response=JsonResponse.class)
+	        @ApiResponse(code=200, message="操作成功", response=JsonResponse.class), 
+	        @ApiResponse(code=400, message="失败[异常]", response=JsonResponse.class)
 	    })
 	@RequestMapping(value="/getMemberList",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
 	@ResponseBody
