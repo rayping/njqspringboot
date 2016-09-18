@@ -1,6 +1,8 @@
 package org.njqspringboot.web.controller.api;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.njqspringboot.common.enums.ResponseCodeEnum;
@@ -57,6 +59,22 @@ public class MemberApiController {
 			jres = new JsonResponse<>(ResponseCodeEnum.FAIL);
 		}
 		return jres;
+	}
+	
+	@ApiOperation(value="更新会员记录", notes="更新会员记录")
+	@RequestMapping(value="/updateMember",method=RequestMethod.GET,produces="application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String,Object> updateMember(){
+		Map<String,Object> map = new HashMap<String,Object>();
+		MemberInfo memberInfo = memberService.getMemberInfoById(Long.valueOf(14245));
+		if(null !=memberInfo){
+			memberInfo.setRealname("Leiyongping");
+			memberInfo.setAge(30);
+			memberInfo.setIdCardNo(System.currentTimeMillis()+"");
+			memberService.updateMemberInfo(memberInfo);
+		}
+		
+		return map;
 	}
 
 }

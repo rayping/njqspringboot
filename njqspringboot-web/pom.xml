@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   
-  <parent>
+ <parent>
     <groupId>com.njq.springboot</groupId>
     <artifactId>njqspringboot</artifactId>
-    <version>${njq.springboot.version}</version>
+    <version>1.0.0</version>
   </parent>
   
   <artifactId>njqspringboot-web</artifactId>
@@ -15,8 +15,10 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <springbootVersion>1.3.5.RELEASE</springbootVersion>
+    <springbootVersion>1.4.0.RELEASE</springbootVersion>
     <druid.version>1.0.23</druid.version>
+     <pagehelper.version>4.1.1</pagehelper.version>
+     <springfox.version>2.5.0</springfox.version>
   </properties>
   
   <dependencies>
@@ -40,38 +42,13 @@
 	    <version>${springbootVersion}</version>
 	</dependency> 
 	
-	
-	<!-- 移除tomcat -->
-	<!--
+	<!-- spring-boot-starter-redis -->
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-web</artifactId>
-	    <version>1.3.5.RELEASE</version>
-	    <exclusions>  
-	      <exclusion>
-	         <groupId>org.springframework.boot</groupId>
-	         <artifactId>spring-boot-starter-tomcat</artifactId>
-	      </exclusion>
-	   </exclusions>
-	</dependency> 
-	-->
+	    <artifactId>spring-boot-starter-redis</artifactId>
+	    <version>${springbootVersion}</version>
+	</dependency>
 	
-	<!-- 使用jetty web服务器-->
-	<!-- 
-	<dependency>
-	   <groupId>org.springframework.boot</groupId>
-	   <artifactId>spring-boot-starter-jetty</artifactId>
-	   <version>1.3.5.RELEASE</version>
-	</dependency> 
-	-->
-	
-	<!-- 使用undertow web服务器-->
-	<!-- 提供包括阻塞和基于 NIO 的非堵塞机制。Undertow 是红帽公司的开源产品，是 Wildfly 默认的 Web 服务器 -->
-	<!-- <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-undertow</artifactId>
-        <version>1.3.5.RELEASE</version>
-	</dependency> -->
 	
 	<dependency>
       <groupId>org.springframework.boot</groupId>
@@ -85,12 +62,28 @@
     </dependency>
     
     <!-- mybatis -->
-    <dependency>
+	<dependency>
 	    <groupId>org.mybatis.spring.boot</groupId>
 	    <artifactId>mybatis-spring-boot-starter</artifactId>
 	    <version>1.1.1</version>
 	</dependency>
+	
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.4.0</version>
+	</dependency>
+		
+	
     
+      <!--分页插件-->
+       <dependency>
+           <groupId>com.github.pagehelper</groupId>
+           <artifactId>pagehelper</artifactId>
+           <version>${pagehelper.version}</version>
+       </dependency>
+        
+        
     <!-- mysql -->
     <dependency>
         <groupId>mysql</groupId>
@@ -112,6 +105,35 @@
 	    <artifactId>fastjson</artifactId>
 	    <version>1.2.14</version>
 	</dependency>
+	
+	<!-- swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.hateoas</groupId>
+					<artifactId>spring-hateoas</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>${springfox.version}</version>
+		</dependency>
+		<!-- swagger -->
+		
+		 
+		<!-- spring-boot-starter-test -->
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${springbootVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		<!--spring-boot-starter-test-->
 
     <dependency>
       <groupId>junit</groupId>

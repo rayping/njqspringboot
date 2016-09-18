@@ -24,12 +24,13 @@
 	     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
 	    <result column="create_user" jdbcType="INTEGER" property="createUser" />
 	    <result column="member_desc" jdbcType="VARCHAR" property="memberDesc" />
+	    <result column="version" jdbcType="INTEGER" property="version" />
 	</resultMap>
 	
 	<sql id="Base_Column_List" >
 	    id, store_id, username, password, sex, id_card_no, age, usertype, enabled, realname, 
 	    address, fieldsfact, fields, phone_number, members, crop, vip_card, create_time, update_time,
-	    create_user, member_desc
+	    create_user, member_desc,version
 	</sql>
   
 	<select id="getMemberList" resultMap="memberInfoResultMap">
@@ -37,4 +38,25 @@
 			<include refid="Base_Column_List" />
 		from xx_member limit 100
 	</select>
+	
+	<select id="merberDaogetPageMemberList"  resultMap="memberInfoResultMap">
+		select 
+			<include refid="Base_Column_List" />
+		from xx_member
+	</select>
+	
+	<select id="getMemberInfoById" resultMap="memberInfoResultMap" parameterType="java.lang.Long">
+			select 
+			<include refid="Base_Column_List" />
+		from xx_member
+		where id=#{id,jdbcType=BIGINT}
+	</select>
+	
+	<update id="updateMemberInfo" parameterType="org.njqspringboot.model.member.MemberInfo">
+		update xx_member set realname = #{realname,jdbcType=VARCHAR},
+			id_card_no=#{idCardNo,jdbcType=VARCHAR}, 
+			age = #{age,jdbcType=INTEGER},
+			version =#{version,jdbcType=INTEGER}
+		where id=#{id,jdbcType=BIGINT}
+	</update>
 </mapper>

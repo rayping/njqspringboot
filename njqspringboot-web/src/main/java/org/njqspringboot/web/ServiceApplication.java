@@ -1,8 +1,8 @@
 package org.njqspringboot.web;
 
+import org.njqspringboot.web.listener.LambdaApplicationPreparedEventListener;
 import org.njqspringboot.web.listener.MyApplicationEnvironmentPreparedEventListener;
 import org.njqspringboot.web.listener.MyApplicationFailedEventListener;
-import org.njqspringboot.web.listener.MyApplicationPreparedEventListener;
 import org.njqspringboot.web.listener.MyApplicationStartedEventListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,7 +34,7 @@ public class ServiceApplication {
     	SpringApplication springApplication = new SpringApplication(ServiceApplication.class);
     	springApplication.addListeners(new MyApplicationStartedEventListener());
     	springApplication.addListeners(new MyApplicationEnvironmentPreparedEventListener());
-    	springApplication.addListeners(new MyApplicationPreparedEventListener());
+    	springApplication.addListeners(new LambdaApplicationPreparedEventListener());
     	springApplication.addListeners(new MyApplicationFailedEventListener());
     	springApplication.run(args);
         System.out.println("SpringBoot Start Success");
