@@ -15,7 +15,7 @@
   <url>http://maven.apache.org</url>
   <properties>
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     <springbootVersion>1.4.0.RELEASE</springbootVersion>
+     <springbootVersion>1.4.1.RELEASE</springbootVersion>
      <springfox-swagger2.version>2.5.0</springfox-swagger2.version>
   </properties>
   <dependencies>
@@ -45,6 +45,19 @@
         <version>${springfox-swagger2.version}</version>
     </dependency>
 	
+	
+	<dependency>  
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-mail</artifactId>
+	    <version>${springbootVersion}</version>
+	</dependency>
+	<dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-freemarker</artifactId>
+	      <version>${springbootVersion}</version>
+	</dependency>
+	
+
 	<!-- mybatis -->
 	<dependency>
 		<groupId>org.mybatis</groupId>
